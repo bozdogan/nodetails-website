@@ -16,10 +16,19 @@ app = Flask(__name__)
 @app.route("/", methods=["POST", "GET"])
 def index():
     if request.method == "POST":
-        text_body = request.form["content"]
-        summary = nodetails.abs.make_inference(model, text_body)
+        text_body = request.form["Inputtext"]
+        sum_choice = request.form["sumChoice"]
+        if sum_choice == "ext":
+            summary = nodetails.ext.get_summary(text_body, length=7).summary
 
-        return render_template("index.html", text=text_body, summary=summary)
+            print(nodetails.ext.get_summary(text_body, length=7))
+        elif sum_choice == "abs":
+            summary = nodetails.abs.make_inference(model, text_body)
+        else:
+            print("HATA, HATA, HATA!", sum_choice)
+
+        return render_template(
+            "index.html", text=text_body, summary=summary, choice=sum_choice)
     else:
         return render_template("index.html")
 

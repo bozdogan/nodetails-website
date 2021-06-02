@@ -102,6 +102,8 @@
                 </div>
               </div>
             </div>
+
+            <form action="/" method="POST">
             <div class="col-md-12">
               <textarea class="textarea" placeholder="Put your text here!" type="text" name="Inputtext" id="content"> </textarea>
             </div>
@@ -111,18 +113,21 @@
 
           <div class="container">
             <div>
-              <input type="radio" id="ext" name="summ" value="ext" checked>
+              <input type="radio" id="ext" name="sumChoice" value="ext" checked>
               <label for="ext">  Extractive Summary</label>
             </div>
 
             <div>
-             <input type="radio" id="abs" name="summ" value="abs">
+             <input type="radio" id="abs" name="sumChoice" value="abs">
              <label for="abs">  Abstractive Summary</label>
            </div>
          </div><br/>
-         <div  class="col-md-4">
-           <input type="button" id="submit" name="submit" value="Submit">
+         <div class="col-md-4">
+           <input type="submit" id="submit" name="submit" value="Submit">
          </div>
+         </form>
+  
+         <div id="summary">{{ summary }}</div>
          
        </div>
      </div>
@@ -183,13 +188,13 @@
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
           <div class="contact">
             <h3>Contact Us</h3>
-            <form>
+            <form action="mailto:nodetails2020@gmail.com" method="post" enctype="text/plain">
               <div class="row">
                 <div class="col-sm-12">
                   <input class="contactus" placeholder="Name" type="text" name="Name">
                 </div>
                 <div class="col-sm-12">
-                  <input class="contactus" placeholder="Phone" type="text" name="Email">
+                  <input class="contactus" placeholder="Phone" type="text" name="Phone">
                 </div>
                 <div class="col-sm-12">
                   <input class="contactus" placeholder="Email" type="text" name="Email">
@@ -198,7 +203,7 @@
                   <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
                 </div>
                 <div class="col-sm-12">
-                  <button class="send">Send</button>
+                  <input type="submit" class="send" value="Send">
                 </div>
               </div>
             </form>
