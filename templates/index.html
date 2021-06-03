@@ -29,6 +29,12 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+	
+	<style>
+         p.t {
+             margin-top: 50px;
+            }
+</style>
 </head>
 <!-- body -->
 <body class="main-layout">
@@ -77,11 +83,13 @@
             <div class="container" >
               <div class="carousel-caption relative" cellpadding="10">
                 <h1>Welcome to NoDetails App</h1>
-                <p style="font-size:27px" >
+				 <div class="col-md-12" cellpadding="10" >
+                   <p class="t" style="font-size:27px" >
                   You can summarize your texts quickly and suitable by using NoDetails App. Also, you might choose whether your summary should be an extractive (It's sentences 
-                  similar to text) or an abstractive summary. (You'll get a summary with different sentences from text.)
-                </p>
-                <p style="font-size:21px" align="right"> -We hope you like this app :)  </p>
+                  similar to text) or an abstractive summary. (You'll get a summary with different sentence from text.)
+                   </p>
+                    <p style="font-size:21px" align="right"> -We hope you like this app :)  </p>
+				</div>
               </div>
             </div>
           </div>
@@ -107,14 +115,16 @@
             <div class="col-md-12">
               <textarea class="textarea" placeholder="Put your text here!" type="text" name="Inputtext" id="content"> </textarea>
             </div>
-            <div class="col-md-12"  >
-            <span  style="font-size:22px" >Choose Summarization Type:  </span> <br/>
-          </div><br/>
+           
 
-          <div class="container">
-            <div>
-              <input type="radio" id="ext" name="sumChoice" value="ext" checked>
-              <label for="ext">  Extractive Summary</label>
+          <div class="container" align="center" >
+		  
+             <div class="col-md-12"  >
+            <span  style="font-size:22px" >Choose Summarization Type:  </span>
+              </div><br/>
+		  <div>
+             <input type="radio" id="ext" name="sumChoice" value="ext" checked>
+             <label for="ext">  Extractive Summary</label>
             </div>
 
             <div>
@@ -122,13 +132,24 @@
              <label for="abs">  Abstractive Summary</label>
            </div>
          </div><br/>
-         <div class="col-md-4">
+         <div class="col-md-12" align="center">
+		    <button> 
+			    
            <input type="submit" id="submit" name="submit" value="Submit">
-         </div>
+		   </button>
+         </div><br/>
+		 
+		  <div class="col-md-12" align="center">
+		      <p style="font-size:22px">Your summary is ready:</p><br/>
+              <label class="textarea" placeholder="özet" type="text" name="Outputtext" id="output"> </label>
+            </div>
+		 
+		 
          </form>
   
          <div id="summary">{{ summary }}</div>
          
+		 
        </div>
      </div>
    </div>
@@ -166,7 +187,7 @@
                 <div class="container">
                   <div class="carousel-caption relat">
                     <h3>Ramazan Çakır</h3>
-                    <span><i class="fa fa-quote-left"></i> ( front-end developer )<i class="fa fa-quote-right"></i></span>
+                    <span><i class="fa fa-quote-left"></i> ( back-end developer )<i class="fa fa-quote-right"></i></span>
                     
                   </div>
                 </div>
@@ -176,7 +197,7 @@
                 <div class="container">
                   <div class="carousel-caption relat">
                     <h3>Bora Özdoğan</h3>
-                    <span><i class="fa fa-quote-left"></i> ( back-end developer )<i class="fa fa-quote-right"></i></span>
+                    <span><i class="fa fa-quote-left"></i> ( back-end developer/ ml )<i class="fa fa-quote-right"></i></span>
                     
                   </div>
                 </div>
