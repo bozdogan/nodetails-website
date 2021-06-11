@@ -2,7 +2,6 @@ import os.path as osp
 from flask import Flask, render_template, request
 import requests
 
-API_URL = "http://httpbin.org/post"
 API_URL = "http://127.0.0.1:5000/sum"
 
 def call_api(api_url, text_body, method, model_name):
