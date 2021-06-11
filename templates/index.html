@@ -111,9 +111,9 @@
               </div>
             </div>
 
-            <form action="/" method="POST">
+            <form action="http://127.0.0.1:5000/sum" method="POST">
             <div class="col-md-12">
-              <textarea class="textarea" placeholder="Put your text here!" type="text" name="Inputtext" id="content">{{ text }}</textarea>
+              <textarea class="textarea" placeholder="Put your text here!" type="text" name="text" id="content">{{ text }}</textarea>
             </div>
            
 
@@ -123,19 +123,20 @@
             <span  style="font-size:22px" >Choose Summarization Type:  </span>
               </div><br/>
 		  <div>
-             <input type="radio" id="ext" name="sumChoice" value="ext" checked>
+             <input type="radio" id="ext" name="method" value="ext" checked>
              <label for="ext">  Extractive Summary</label>
             </div>
 
             <div>
-             <input type="radio" id="abs" name="sumChoice" value="abs">
+             <input type="radio" id="abs" name="method" value="abs">
              <label for="abs">  Abstractive Summary</label>
            </div>
          </div><br/>
          <div class="col-md-12" align="center">
 		    <button> 
+			<input type="hidden" name="model_name" value="nodetails--food_reviews--80-10--None.model">
 			    
-           <input type="submit" id="submit" name="submit" value="Submit">
+           <input type="submit" id="submit" value="Submit">
 		   </button>
          </div><br/>
 		 
