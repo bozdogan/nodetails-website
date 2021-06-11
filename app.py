@@ -1,4 +1,3 @@
-import os.path as osp
 from flask import Flask, render_template, request
 import requests
 
