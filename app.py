@@ -1,12 +1,7 @@
 from flask import Flask, render_template, request
 import requests
 
-API_URL = "http://127.0.0.1:5000/sum"
-
-def call_api(api_url, text_body, method, model_name):
-    data = {"text": text_body, 
-            "method": method,
-            "model_name": model_name}
+def call_api(api_url, data):
     response = requests.post(api_url, data=data)
     
     if response.status_code == 200:
@@ -20,14 +15,12 @@ app = Flask(__name__)
 @app.route("/", methods=["POST", "GET"])
 def index():
     if request.method == "POST":
-        text_body = request.form["text"]
-        method = request.form["method"]
-        model_name = request.form["model_name"]
+        data = request.form
+        print(type(request.form))
+        summary = call_api("http://127.0.0.1:5000/sum", data)
+        summary = call_api("http://127.0.0.1:5000/sum", data)
 
-        summary = call_api(API_URL, text_body, method, model_name)
-
-        return render_template(
-            "index.html", text=text_body, summary=summary, choice=method)
+        return render_template("index.html", summary=summary)
     else:
         return render_template("index.html")
 
