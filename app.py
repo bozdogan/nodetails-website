@@ -26,6 +26,8 @@ def index():
 
         if response:
             if "reference" in response:
+                # NOTE(bora): Either extractive or integrated engine here
+
                 text_display = []
                 for k, v in response["sentences"].items():
                     text_display.append(f'<a class="referenced" name="ref{k}">{v}</a>')
@@ -35,15 +37,12 @@ def index():
                 for ref in response["reference"]:
                     sum_linked.append(f'<a href="#ref{ref}">{response["sentences"][ref]}</a>')
                 extended_summary = " ".join(sum_linked)
+
+                if response["engine"] == "integrated-engine":
+                    summary = response["summary"]
             elif "summary" in response:
                 summary = response["summary"]
-                
-            # if "extended_summary" in response:
-            #     extended_summary = response["extended_summary"]
-
-
-            text = data["text"]
-            text = json.dumps(response)
+                text = data["text"]
         else:
             text = "Server unavailable"
 
