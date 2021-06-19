@@ -52,7 +52,7 @@
           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
             <div class="full">
               <div class="center-desk">
-                <div class="logo"> <a href="index.html">NODETAILS</a> </div>
+                <div class="logo"> <a href="#">NODETAILS</a> </div>
               </div>
             </div>
           </div>
@@ -61,7 +61,6 @@
               <div class="limit-box">
                 <nav class="main-menu">
                   <ul class="menu-area-main">
-                    <li class="active"> <a href="index.html">Home</a> </li>
                     <li> <a href="#getsummary">Get Your Summary</a> </li>                            
                     <li> <a href="#testimonial">Our Team</a> </li>
                     <li class="mean-last"> </a> </li>
@@ -113,22 +112,26 @@
 
             <form action="/" method="POST">
             <div class="col-md-12">
-              <textarea class="textarea" placeholder="Put your text here!" type="text" name="text" id="content">{{ text }}</textarea>
+              <textarea class="textarea" placeholder="Put your text here!" type="text" name="text" id="content"></textarea>
             </div>
-           
+           <script>console.log({{text|safe}})</script>
 
           <div class="container" align="center" >
 		  
              <div class="col-md-12"  >
             <span  style="font-size:22px" >Choose Summarization Type:  </span>
               </div><br/>
-		  <div>
-             <input type="radio" id="ext" name="method" value="ext" checked>
-             <label for="ext">  Extractive Summary</label>
-            </div>
 
             <div>
-             <input type="radio" id="abs" name="method" value="abs">
+             <input type="radio" id="abs4" name="engine" value="integrated-engine" checked="checked">
+             <label for="abs4">  Integrated Summary</label>
+           </div>
+		  <div>
+             <input type="radio" id="ext" name="engine" value="ext-engine">
+             <label for="ext">  Extractive Summary</label>
+            </div>
+            <div>
+             <input type="radio" id="abs" name="engine" value="abs-wikihow-engine">
              <label for="abs">  Abstractive Summary</label>
            </div>
          </div><br/>
@@ -144,9 +147,15 @@
 		      <p style="font-size:22px">Your summary is ready:</p><br/>
               <label class="textarea" placeholder="özet" type="text" name="Outputtext" id="output"> 
 				{{ summary }}
+				<br>
+				{{ extended_summary | safe }}
 			  </label>
             </div>
-		 
+			
+		<div class="col-md-12" align="center">
+		      <p style="font-size:22px">Full text:</p><br/>
+			{{ text_display | safe }}
+        </div>
 		 
          </form>
          
@@ -237,6 +246,9 @@
   <!-- end Testimonial --> 
   <!--  footer --> 
   
+  <a style="display:none;position:fixed;bottom:10px;right:10px;" href="#" title="Back to Top" id="backtotop"><img src="{{ url_for('static', filename='images/round-arrow-top.png') }}" style="height:50px" /></a>
+
+  
   <!-- Javascript files--> 
   <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script> 
   <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script> 
@@ -245,7 +257,8 @@
   <script src="{{ url_for('static', filename='js/plugin.js') }}"></script> 
   <!-- sidebar --> 
   <script src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script> 
-  <script src="{{ url_for('static', filename='js/custom.j') }}s"></script>
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/betik.js') }}"></script>
   <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
   <script>
     $(document).ready(function(){
@@ -263,6 +276,6 @@
       });
     });
 
-  </script> 
+  </script>
 </body>
 </html>
