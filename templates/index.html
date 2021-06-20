@@ -147,7 +147,14 @@
 				<a name="summary-text"></a>
 				<label class="textarea" placeholder="özet" type="text" name="Outputtext" id="output"> 
 					{% if summary %}
-						<p class="summary">{{ summary }}</p>
+						{% if extended_summary %}
+							<p class="summary">
+						{% else %}
+							<p>
+						{% endif %}
+							{{ summary }}
+						</p>
+						
 						<br><br>
 					{% endif %}
 
