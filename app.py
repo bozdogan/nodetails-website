@@ -59,4 +59,4 @@ if __name__ == "__main__":
     API_URL = sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:5000"
     print("API URL: %s\n" % API_URL)
     
-    app.run(port=5001, debug=True)
+    app.run(port=5001, debug=False)

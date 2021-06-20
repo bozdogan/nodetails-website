@@ -5,3 +5,7 @@ a.referenced:target{
 .carousel-inner{
 	max-height: 800px;
 }
+
+.textarea p.summary {
+	font-weight: bold;
+}

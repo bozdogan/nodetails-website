@@ -144,9 +144,10 @@
 		 
 			<div class="col-md-12" align="center">
 				<p style="font-size:22px">Your summary is ready:</p><br/>
+				<a name="summary-text"></a>
 				<label class="textarea" placeholder="özet" type="text" name="Outputtext" id="output"> 
 					{% if summary %}
-						<p>{{ summary }}</p>
+						<p class="summary">{{ summary }}</p>
 						<br><br>
 					{% endif %}
 
@@ -249,7 +250,7 @@
 	<!-- end Testimonial --> 
 	<!--  footer --> 
 	
-	<a style="display:none;position:fixed;bottom:10px;right:10px;" href="#getsummary" title="Back to Top" id="backtotop"><img src="{{ url_for('static', filename='images/round-arrow-top.png') }}" style="height:50px" /></a>
+	<a style="display:none;position:fixed;bottom:10px;right:10px;" href="#summary-text" title="Back to Top" id="backtotop"><img src="{{ url_for('static', filename='images/round-arrow-top.png') }}" style="height:50px" /></a>
 
 	
 	<!-- Javascript files--> 
